@@ -20,7 +20,9 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.NODE_ENV === "production" 
+      ? process.env.FRONTEND_URL || true  // Allow same origin in production
+      : "http://localhost:5173",
     credentials: true,
   })
 );
@@ -37,9 +39,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+
 
 connectDB()
   .then(() => {
