@@ -5,6 +5,7 @@ import { getUserForSidebar,getMessages,sendMessages } from "../controllers/messa
 const router = Router();
 
 router.route("/users").get(verifyJWT,getUserForSidebar);
-router.route("/:id").get(verifyJWT,getMessages);
 router.route("/send/:id").post(verifyJWT,sendMessages);
+router.route("/:id").get(verifyJWT,getMessages);
+
 export default router
