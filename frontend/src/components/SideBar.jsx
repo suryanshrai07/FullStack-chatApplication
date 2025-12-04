@@ -21,8 +21,8 @@ const SideBar = () => {
 
   if (isUserLoading) return <SidebarSkeleton />;
   return (
-    <aside className="h-full w-30 lg:w-70 border-r border-base-300 flex flex-col transition-all duration-100">
-      <div className="border-b border-base-300 w-full p-5">
+    <aside className="h-full w-30 lg:w-70 border-r border-base-300 flex flex-col transition-all duration-100 overflow-auto ">
+      <div className="border-b border-base-300 w-full p-5 ">
         <div className="flex items-center gap-2">
           <Users className="size-6" />
           <span className="font-medium hidden lg:block">Contacts</span>
@@ -44,7 +44,7 @@ const SideBar = () => {
           </span>
         </div>
 
-        <div className="overflow-y-auto w-full py-3">
+        <div className="overflow-y-auto  w-full py-3">
           {filteredUsers.map((user) => (
             <button
               key={user._id}
